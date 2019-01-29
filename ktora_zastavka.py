@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[62]:
-
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
@@ -12,23 +6,12 @@ from selenium.webdriver.firefox.options import Options
 import pandas as pd
 import datetime
 
-
-# In[63]:
-
-
 now = datetime.datetime.now()
 now_mas = now + datetime.timedelta(hours=2, minutes = 11)
 now_mas = now_mas.strftime('%H:%M')
 
-
-# In[64]:
-
-
 now_bil = now + datetime.timedelta(hours=2, minutes = 9)
 now_bil = now_bil.strftime('%H:%M')
-
-
-# In[65]:
 
 
 def get_query(when, departure, arrival):
@@ -51,37 +34,16 @@ def get_query(when, departure, arrival):
     driver.close()
     return casy[0]
 
-
-# In[66]:
-
-
 departure = 'Masarykovo nádraží'
 arrival = 'Letenské náměstí'
 
-
-# In[67]:
-
-
 mas = get_query(now_mas, departure, arrival)
-
-
-# In[68]:
-
 
 departure = 'Bílá labuť'
 
-
-# In[69]:
-
-
 bil = get_query(now_bil, departure, arrival)
-
-
-# In[104]:
-
 
 if mas <  bil:
     print("Chod na Masaricku: {:d}:{:02d}".format(mas.time().hour, mas.time().minute))
 else:
     print("Chod na Bielu labut: {:d}:{:02d}".format(bil.time().hour, bil.time().minute))
-
