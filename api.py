@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import time
-from selenium.webdriver.firefox.options import Options
+import selenium.webdriver.chrome.service as service
 import pandas as pd
 import datetime
 
@@ -15,9 +15,9 @@ now_bil = now_bil.strftime('%H:%M')
 
 
 def get_query(when, departure, arrival):
-    options = Options()
-    options.add_argument("--headless")
-    driver = webdriver.Firefox(firefox_options=options, executable_path="./geckodriver")
+    options = Service.Service()
+    #options.add_argument("--headless")
+    driver = webdriver.Chrome("./geckodriver")
     driver.get("http://spojeni.dpp.cz/")
     inputElement = driver.find_element_by_id("ctlFrom_txtObject")
     inputElement.send_keys(departure)
