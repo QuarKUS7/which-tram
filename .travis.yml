@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+
+language: python
+
+before_install:
+  - docker build -t which-tram .
+
+script:
+  - docker run which-tram python test.py
+
+deploy:
+  provider: heroku
+  app: which-tram
+  api_key:
+    secure: "$HEROKU_KEY"s
