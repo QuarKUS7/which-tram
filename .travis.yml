@@ -3,13 +3,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t which-tram .
+  - docker build -t quarkus7/which-tram .
 
 script:
-  - docker run which-tram python test.py
+  - docker run quarkus7/which-tram python test.py
+
+after_success:
+  - bash docker_heroku_login
+  - docker tag quarkus7/which-tram registry.heroku.com/which-tram/web
 
 deploy:
-  provider: heroku
-  app: which-tram
-  api_key:
-    secure: "$HEROKU_KEY"
+  provider: script
+  script:
+      docker push quarkus7/which-tram;
+      docker push registry.heroku.com/which-tram/web;
+
+#deploy:
+#  provider: heroku
+#  app: which-tram
+#  api_key:
+#    secure: "$HEROKU_KEY"
