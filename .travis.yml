@@ -11,12 +11,11 @@ script:
   - docker run quarkus7/which-tram python test.py
 
 after_success:
-  - bash docker_push
+  - bash docker_hub_push
   - docker login --username=_ --password=$HEROKU_KEY registry.heroku.com
   - docker tag quarkus7/which-tram registry.heroku.com/$HEROKU_APP_NAME/web
   - docker push registry.heroku.com/$HEROKU_APP_NAME/web
-  - heroku container:release web
-
+  - heroku container:release web --app which-tram
 
 #deploy:
 #  provider: heroku
