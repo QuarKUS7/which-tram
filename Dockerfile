@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE $PORT
+EXPOSE ${PORT}
