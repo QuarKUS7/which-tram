@@ -15,8 +15,8 @@ after_success:
   - docker login --username=_ --password=$HEROKU_KEY registry.heroku.com
   - docker tag quarkus7/which-tram registry.heroku.com/$HEROKU_APP_NAME/web
   - docker push registry.heroku.com/$HEROKU_APP_NAME/web
-  - echo "$HEROKU_USERNAME"  # or you can plaintext it, if you're feeling adventurous
-    echo "$HEROKU_PASSWORD | heroku login
+  - ( echo "$HEROKU_USERNAME"  # or you can plaintext it, if you're feeling adventurous
+    echo "$HEROKU_PASSWORD" ) | heroku login
   - heroku container:login
   - heroku container:release web --app which-tram
 
