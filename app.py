@@ -31,4 +31,4 @@ def find_direction():
         return "Chod na Bielu labut: {:d}:{:02d}".format(bil.time().hour, bil.time().minute)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT'))
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
