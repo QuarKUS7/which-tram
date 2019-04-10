@@ -33,8 +33,8 @@ def get_times(when, departure, arrival):
     driver.find_element_by_xpath("//input[@id='optChangesDirect']").click()
     # Send the form
     inputElement.send_keys(Keys.ENTER)
-    # Waite 5 seconds for loading of the repsone page
-    time.sleep(5)
+    # Waite 4 seconds for loading of the repsone page
+    time.sleep(4)
     # Parse the response
     soup = BeautifulSoup(driver.page_source, "html.parser")
     # Search for time elements
