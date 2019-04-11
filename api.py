@@ -44,26 +44,4 @@ def get_times(when, departure, arrival):
     # close the driver
     driver.close()
     # return times
-    return casy[0]
-
-
-if __name__ == '__main__':
-
-    now = datetime.datetime.now()
-    now_mas = now + datetime.timedelta(hours=2, minutes = 11)
-    now_mas = now_mas.strftime('%H:%M')
-
-    now_bil = now + datetime.timedelta(hours=2, minutes = 9)
-    now_bil = now_bil.strftime('%H:%M')
-
-    masar = 'Masarykovo nádraží'
-    bila = 'Bílá labuť'
-    arrival = 'Letenské náměstí'
-
-    mas = get_times(now_mas, masar, arrival)
-    bil = get_times(now_bil, bila, arrival)
-
-    if mas <  bil:
-        print("Chod na Masaricku: {:d}:{:02d}".format(mas.time().hour, mas.time().minute))
-    else:
-        print("Chod na Bielu labut: {:d}:{:02d}".format(bil.time().hour, bil.time().minute))
+    return casy[0] if casy else "Nenaslo sa ziadne spojenie!"

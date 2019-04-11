@@ -25,6 +25,11 @@ def find_direction():
     mas = get_times(now_mas, MASAR, ARRIVAl)
     bil = get_times(now_bil, BILA, ARRIVAl)
 
+    if type(mas) == str:
+        return mas
+    if type(bil) == str:
+        return bil
+
     if mas <  bil:
         return "Chod na Masaricku: {:d}:{:02d}".format(mas.time().hour, mas.time().minute)
     else:
