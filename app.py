@@ -14,10 +14,11 @@ def find_direction():
     options = set_chromium()
 
     now = datetime.datetime.now()
-    now_mas = now + datetime.timedelta(hours=2, minutes = 11)
+    # give 9 minutes for walking to Masarykovo nard.
+    now_mas = now + datetime.timedelta(hours=2, minutes = 9)
     now_mas = now_mas.strftime('%H:%M')
-
-    now_bil = now + datetime.timedelta(hours=2, minutes = 9)
+    # give 7 minutes for walking to Masarykovo nard.
+    now_bil = now + datetime.timedelta(hours=2, minutes = 7)
     now_bil = now_bil.strftime('%H:%M')
 
     MASAR = 'Masarykovo nádraží'
