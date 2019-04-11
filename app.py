@@ -11,6 +11,8 @@ def hello():
     return render_template('index.html', message=message)
 
 def find_direction():
+    options = set_chromium()
+
     now = datetime.datetime.now()
     now_mas = now + datetime.timedelta(hours=2, minutes = 11)
     now_mas = now_mas.strftime('%H:%M')
@@ -22,8 +24,8 @@ def find_direction():
     BILA = 'Bílá labuť'
     ARRIVAl = 'Letenské náměstí'
 
-    mas = get_times(now_mas, MASAR, ARRIVAl)
-    bil = get_times(now_bil, BILA, ARRIVAl)
+    mas = get_times(now_mas, MASAR, ARRIVAl, options)
+    bil = get_times(now_bil, BILA, ARRIVAl, options)
 
     if type(mas) == str:
         return mas

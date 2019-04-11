@@ -18,10 +18,9 @@ def set_driver(options):
     driver.get("http://spojeni.dpp.cz/")
     return driver
 
-def get_times(when, departure, arrival):
+def get_times(when, departure, arrival, options):
     """ This function set up Selenium and visits url and returns desired times"""
     # Set up chromim and driver
-    options = set_chromium()
     driver = set_driver(options)
     # Fill in the form
     inputElement = driver.find_element_by_id("ctlFrom_txtObject")
@@ -33,8 +32,8 @@ def get_times(when, departure, arrival):
     driver.find_element_by_xpath("//input[@id='optChangesDirect']").click()
     # Send the form
     inputElement.send_keys(Keys.ENTER)
-    # Waite 4 seconds for loading of the repsone page
-    time.sleep(4)
+    # Waite 3 seconds for loading of the repsone page
+    time.sleep(3)
     # Parse the response
     soup = BeautifulSoup(driver.page_source, "html.parser")
     # Search for time elements
