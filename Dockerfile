@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 WORKDIR /app
 
-RUN apk --update add --no-cache g++ udev chromium chromium-chromedriver
+RUN apk --update add --no-cache g++ chromium chromium-chromedriver
 
 COPY requirements.txt .
 
