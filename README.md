@@ -1,6 +1,6 @@
 # which-tram
 
-Simple web app that returns information to which tram stop one should go when leaving Florentinum in order to get to Letenske namesti.
+Simple web app that returns information to which tram stop one should go when leaving Florentinum in order to get to Letenske namesti. That is either Bila Labut or Masarykovo nadrazi.
 
  - **Technology stack**: The app is in Flask framewokr. Scrapping is done in Selenium. Everything is containizered via Dokcer. Testing and deploynment is done by Travis-CI. The app is hoste on Heroku free-tier.
  
