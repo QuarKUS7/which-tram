@@ -34,7 +34,7 @@ def find_direction():
         return bil
 
     if mas <  bil:
-        return "Chod na Masaricku: {:d}:{:02d}".format(mas.time().hour, mas.time().minute)
+        return "Chod na Masaryckovo nadrazi: {:d}:{:02d}".format(mas.time().hour, mas.time().minute)
     else:
         return "Chod na Bielu labut: {:d}:{:02d}".format(bil.time().hour, bil.time().minute)
 
